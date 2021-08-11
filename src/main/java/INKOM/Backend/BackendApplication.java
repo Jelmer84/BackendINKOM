@@ -21,7 +21,7 @@ public class BackendApplication {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 
-
+// Create super admin, run only the first time.
 //	@EventListener(ApplicationReadyEvent.class)
 //	public void createTestData(){
 //		SignupRequest s = new SignupRequest();

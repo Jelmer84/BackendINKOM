@@ -51,12 +51,9 @@ public class AdminController {
                                                     @PathVariable("stage") int stage){
         Optional<EventInventory> event = inventoryService.findOverView(eventId, studentPartyId, stage);
 
-
         return event.<ResponseEntity<Object>>map(eventInventory -> ResponseEntity.ok().body(eventInventory))
                 .orElseGet(() -> ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
-                .body(new MessageResponse("Record not available")));
-
+                .body(new MessageResponse("Data (nog) niet beschikbaar.")));
     }
-
 }
