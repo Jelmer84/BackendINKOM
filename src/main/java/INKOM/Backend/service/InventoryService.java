@@ -101,6 +101,7 @@ public class InventoryService {
     private String getStage(int stage){
         return EventInventoryStage.values()[stage].toString();
     }
+
     public List<EventSummary> supervisorSummary(long supervisorId){
         List<EventInventory> events = inventoryRepository.findAllBySubmitted(supervisorId);
 
