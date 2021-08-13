@@ -1,6 +1,5 @@
 package INKOM.Backend.payload;
 
-
 import lombok.Data;
 
 @Data
@@ -10,5 +9,3 @@ public class ProfilePictureDto {
     private long id;
     private long userId;
 }
-
-//LOMBOK of GETTERS & SETTERS??

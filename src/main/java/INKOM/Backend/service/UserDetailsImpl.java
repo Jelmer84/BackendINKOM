@@ -5,7 +5,6 @@ import INKOM.Backend.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -24,8 +23,6 @@ public class UserDetailsImpl implements UserDetails {
 
     private final Collection<? extends GrantedAuthority> authorities;
 
-//    public UserDetailsImpl(Long id, String username, String email, String password,
-//                           Collection<? extends GrantedAuthority> authorities) {
 public UserDetailsImpl(Long id, String firstName, String lastName, String email, String password,
                        Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
@@ -72,12 +69,6 @@ public UserDetailsImpl(Long id, String firstName, String lastName, String email,
     public String getUsername() {
         return email;
     }
-
-//    @Override
-//    public String getUsername() {
-//        return username;
-//    }
-
 
     public String getFirstName() {
         return firstName;

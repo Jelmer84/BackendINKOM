@@ -16,7 +16,6 @@ public class EventSummary {
 
     private String studentPartyRemarks;
 
-
     public EventSummary(Long id, String eventId, String studentPartyId, String status, String stage, String
             organisationRemarks, String studentPartyRemarks) {
         this.id = id;
@@ -35,7 +34,6 @@ public class EventSummary {
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public String getEventId() {
         return eventId;
@@ -68,5 +66,4 @@ public class EventSummary {
     public void setStage(String stage) {
         this.stage = stage;
     }
-
 }

@@ -10,10 +10,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import java.util.Arrays;
-import java.util.HashMap;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -32,7 +29,7 @@ class AuthControllerTest {
 
         loginRequest.setUsername("test");
         loginRequest.setEmail("test@test.com");
-        loginRequest.setPassword("Passowrd");
+        loginRequest.setPassword("Password");
 
         ResponseEntity<JwtResponse> ok = ResponseEntity.ok(new JwtResponse("jwt",
                 1l,
@@ -46,6 +43,5 @@ class AuthControllerTest {
 
     @Test
     void registerUser() {
-
     }
 }

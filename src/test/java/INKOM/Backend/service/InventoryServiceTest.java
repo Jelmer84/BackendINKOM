@@ -9,10 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -38,7 +35,6 @@ class InventoryServiceTest {
 
         Optional<EventInventory> eventInventory = Optional.empty();
         String studentID = "-1";
-
         when(inventoryRepository
                 .findByStudentPartyIdAndStatusLessThanAndStage(studentID,
                         EventInventoryStatus.APPROVED.value(), EventInventoryStage.BEFORE.value())).thenReturn(eventInventory);
@@ -52,7 +48,6 @@ class InventoryServiceTest {
 
         Optional<EventInventory> eventInventory = Optional.empty();
         String studentID = "-1";
-
         when(inventoryRepository
                 .findByStudentPartyIdAndStatusLessThanAndStage(studentID,
                         EventInventoryStatus.APPROVED.value(), EventInventoryStage.AFTER.value())).thenReturn(eventInventory);
@@ -66,7 +61,6 @@ class InventoryServiceTest {
 
         Optional<EventInventory> eventInventory = Optional.empty();
         String studentID = "-1";
-
         when(inventoryRepository
                 .findByStudentPartyIdAndStatusLessThanAndStage(studentID,
                         EventInventoryStatus.APPROVED.value(), EventInventoryStage.COIN.value())).thenReturn(eventInventory);
@@ -79,10 +73,8 @@ class InventoryServiceTest {
     void findEvent() {
         EventInventory eventInventory = null;
         long id = -1L;
-
         when(inventoryRepository.getById(-1l)).thenReturn(eventInventory);
         EventInventory overView = inventoryService.findEvent(id);
-
         assertEquals(overView, null);
     }
 }

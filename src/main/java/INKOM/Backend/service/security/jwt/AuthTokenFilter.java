@@ -10,20 +10,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * AuthTokenFilter extracts username/password from the received token using JwtUtils, then based on the extracted
- * data, AuthTokenFilter:
- * – creates a AuthenticationToken (that implements Authentication)
- * – uses the AuthenticationToken as Authentication object and stores it in the SecurityContext for future filter uses
- * (e.g: Authorization filters).
- */
 public class AuthTokenFilter extends OncePerRequestFilter {
 
     @Autowired
@@ -43,18 +35,15 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             String jwt = parseJwt(request);
             if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
                 String username = jwtUtils.getUserNameFromJwtToken(jwt);
-
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
                         userDetails, null, userDetails.getAuthorities());
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
         } catch (Exception e) {
             LOGGER.error("Cannot set user authentication: {0}", e);
         }
-
         filterChain.doFilter(request, response);
     }
 
@@ -64,7 +53,6 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         if (StringUtils.hasText(headerAuth) && headerAuth.startsWith(TOKEN_TYPE)) {
             return headerAuth.substring(TOKEN_TYPE.length());
         }
-
         return null;
     }
 }

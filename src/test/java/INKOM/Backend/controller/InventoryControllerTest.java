@@ -13,11 +13,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -40,9 +38,6 @@ class InventoryControllerTest {
 
     @Test
     void approve() {
-        //doThrow(Exception.class).when(inventoryService).approve("1", "1", 1, null);
-        //when(inventoryService.approve("1", "1", 1, null)).thenThrow(new Exception());
-
     }
 
     @Test
@@ -53,7 +48,7 @@ class InventoryControllerTest {
         assertEquals(response.getStatusCode(), HttpStatus.ALREADY_REPORTED);
 
         MessageResponse messageResponse = (MessageResponse) response.getBody();
-        assertEquals(messageResponse.getMessage(), "you have already reviewed this event");
+        assertEquals(messageResponse.getMessage(), "Dit evenement is al beoordeeld");
     }
 
     @Test
@@ -62,9 +57,8 @@ class InventoryControllerTest {
         when(inventoryService.findEventForStudentPartyAfter("-1")).thenReturn(event);
         ResponseEntity<Object> response = inventoryController.fetchEventInventoryForStudentParty("-1", EventInventoryStage.AFTER.value());
         assertEquals(response.getStatusCode(), HttpStatus.ALREADY_REPORTED);
-
         MessageResponse messageResponse = (MessageResponse) response.getBody();
-        assertEquals(messageResponse.getMessage(), "you have already reviewed this event");
+        assertEquals(messageResponse.getMessage(), "Dit evenement is al beoordeeld");
     }
 
     @Test
@@ -75,7 +69,7 @@ class InventoryControllerTest {
         assertEquals(response.getStatusCode(), HttpStatus.ALREADY_REPORTED);
 
         MessageResponse messageResponse = (MessageResponse) response.getBody();
-        assertEquals(messageResponse.getMessage(), "you have already reviewed this event");
+        assertEquals(messageResponse.getMessage(), "Dit evenement is al beoordeeld");
     }
 
     @Test
@@ -83,13 +77,11 @@ class InventoryControllerTest {
         EventInventory value = new EventInventory();
         value.setStatus(EventInventoryStatus.REJECTED.value());
         Optional<EventInventory> event = Optional.of(value);
-
         when(inventoryService.findEventForStudentPartyCoin("1")).thenReturn(event);
         ResponseEntity<Object> response = inventoryController.fetchEventInventoryForStudentParty("1", EventInventoryStage.COIN.value());
         assertEquals(response.getStatusCode(), HttpStatus.ALREADY_REPORTED);
-
         MessageResponse messageResponse = (MessageResponse) response.getBody();
-        assertEquals(messageResponse.getMessage(), "you have already reviewed this event");
+        assertEquals(messageResponse.getMessage(), "Dit evenement is al beoordeeld");
     }
 
     @Test
@@ -98,7 +90,6 @@ class InventoryControllerTest {
         when(inventoryService.findEventForStudentPartyCoin("1")).thenReturn(event);
         ResponseEntity<Object> response = inventoryController.fetchEventInventoryForStudentParty("1", EventInventoryStage.COIN.value());
         assertEquals(response.getStatusCode(), HttpStatus.OK);
-
         EventInventory eventInventory = (EventInventory) response.getBody();
         assertNotNull(eventInventory);
     }
@@ -114,6 +105,6 @@ class InventoryControllerTest {
     void deleteAllEventData() {
         ResponseEntity<MessageResponse> response = inventoryController.deleteAllEventData();
         assertEquals(response.getStatusCode(), HttpStatus.OK);
-        assertEquals(response.getBody().getMessage(), "EventInventory deleted!");
+        assertEquals(response.getBody().getMessage(), "Alle tellingen zijn verwijderd!");
     }
 }

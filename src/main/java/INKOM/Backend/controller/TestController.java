@@ -3,7 +3,6 @@ package INKOM.Backend.controller;
 import INKOM.Backend.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Map;
 
 @CrossOrigin(origins = "*", maxAge = 3600)

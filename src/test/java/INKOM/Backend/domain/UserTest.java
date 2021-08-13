@@ -1,7 +1,6 @@
 package INKOM.Backend.domain;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserTest {
@@ -14,7 +13,6 @@ class UserTest {
         user.setPassword("password");
         user.setLastname("lastName");
         user.setId(1l);
-
         assertNotNull(user.getUsername());
         assertEquals("test", user.getUsername());
         assertEquals("firstName", user.getFirstName());

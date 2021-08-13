@@ -20,7 +20,6 @@ public class ProfilePictureService {
         image.setUserId(profilePictureDto.getUserId());
         if(profilePictureDto.getId() > 0)
             image.setId(profilePictureDto.getId());
-
         return profilePictureRepository.save(image);
     }
 

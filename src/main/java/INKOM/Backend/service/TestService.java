@@ -24,5 +24,4 @@ public class TestService {
     public String generateAdminContent() {
         return "Admin Board.";
     }
-
 }

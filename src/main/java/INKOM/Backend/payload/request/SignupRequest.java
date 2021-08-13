@@ -7,13 +7,9 @@ import java.util.Set;
 
 public class SignupRequest {
 
-//    @NotBlank
-//    @Size(min = 3, max = 20)
-//    private String username;
     private String firstName;
 
     private String lastName;
-
 
     @NotBlank
     @Size(max = 50)
@@ -43,14 +39,6 @@ public class SignupRequest {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    //    public String getUsername() {
-//        return username;
-//    }
-//
-//    public void setUsername(String username) {
-//        this.username = username;
-//    }
 
     public String getEmail() {
         return email;

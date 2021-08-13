@@ -1,0 +1,23 @@
+
+-- INSERT INTO role(name) VALUES('ROLE_USER');
+-- INSERT INTO role(name) VALUES('ROLE_MODERATOR');
+-- INSERT INTO role(name) VALUES('ROLE_ADMIN');
+--
+-- INSERT INTO app_user (username,first_name, lastname, email, studentid ,password)
+-- VALUES ('example@superadmin.com', 'superadmin', 'superadmin', 'example@superadmin.com', 'INKOM', '$2a$10$NvYbsSeFDyQpjn6iPSIqjOxF/Vi/6MG56QPRRLWDffUwVSXqJaAmC');
+-- INSERT INTO user_role (user_id, role_id) values (1, 3);
+-- INSERT INTO user_role (user_id, role_id) values (1, 2);
+-- INSERT INTO user_role (user_id, role_id) values (1, 1);
+--
+-- INSERT INTO app_user (username,first_name, lastname, email, studentid ,password)
+-- VALUES ('example@admin.com', 'admin', 'admin', 'example@admin.com', 'INKOM', '$2a$10$j3qTlL.DClivtQU5ATi4kOzorZlKeEtboWsrQ5xoeaS00TTqPjcIC');
+-- INSERT INTO user_role (user_id, role_id) values (2, 3);
+--
+-- INSERT INTO app_user (username,first_name, lastname, email, studentid ,password)
+-- VALUES ('example@moderator.com', 'mod', 'mod', 'example@moderator.com', 'INKOM', '$2a$10$9eC48Q9piSmVDc88fpcgZO9NB57M1Qvwex9YaTXwrxbppQUZdquHi');
+-- INSERT INTO user_role (user_id, role_id) values (3, 2);
+--
+-- INSERT INTO app_user (username,first_name, lastname, email, studentid ,password)
+-- VALUES ('example@user.com', 'user', 'user', 'example@user.com', 'S.V. Circumflex', '$2a$10$R/dnD3PsPwihTgdl23/zyOAiFZ2RaYaGgvybkSR5I6Jv7PdWo8Ew.');
+-- INSERT INTO user_role (user_id, role_id) values (4, 1);
+

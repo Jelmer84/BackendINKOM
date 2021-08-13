@@ -1,7 +1,6 @@
 package INKOM.Backend.domain;
 
 public enum EventInventoryStatus {
-
     SUBMITTED(1),
     REJECTED(2),
     APPROVED(3);

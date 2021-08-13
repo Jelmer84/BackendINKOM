@@ -1,7 +1,6 @@
 package INKOM.Backend.domain;
 
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -34,7 +33,6 @@ public class Role {
     public Role(ERole name) {
         this.name = name;
     }
-
 
     public long getId() {
         return id;

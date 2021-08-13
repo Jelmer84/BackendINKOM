@@ -1,7 +1,6 @@
 package INKOM.Backend.domain;
 
 import lombok.Data;
-
 import javax.persistence.*;
 
 @Data
@@ -36,7 +35,6 @@ public class EventInventory {
 
     @Column
     private long submitted;
-
 }
 
 

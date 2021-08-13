@@ -1,6 +1,7 @@
 package INKOM.Backend.domain;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,9 +20,10 @@ public class User {
 
     @Id
     @GeneratedValue(
-            strategy= GenerationType.AUTO,
+            strategy= GenerationType.IDENTITY,
             generator="native"
     )
+
     @GenericGenerator(
             name = "native",
             strategy = "native"
@@ -44,13 +46,6 @@ public class User {
     public User() {
 
     }
-
-//    public User(String username, String email, String password) {
-//        this.username = username;
-//        this.email = email;
-//        this.password = password;
-//    }
-
 
     public User( String firstName, String lastname, String email, String studentID, String password) {
         this.username = email;

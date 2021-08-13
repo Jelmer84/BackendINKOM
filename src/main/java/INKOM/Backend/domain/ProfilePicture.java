@@ -1,7 +1,6 @@
 package INKOM.Backend.domain;
 
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 @Entity
@@ -13,10 +12,12 @@ public class ProfilePicture {
             strategy= GenerationType.AUTO,
             generator="native"
     )
+
     @GenericGenerator(
             name = "native",
             strategy = "native"
     )
+
     @Column(columnDefinition = "serial")
     private long id;
 

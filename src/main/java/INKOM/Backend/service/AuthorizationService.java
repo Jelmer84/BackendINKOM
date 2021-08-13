@@ -10,7 +10,6 @@ import INKOM.Backend.payload.response.MessageResponse;
 import INKOM.Backend.repository.RoleRepository;
 import INKOM.Backend.repository.UserRepository;
 import INKOM.Backend.service.security.jwt.JwtUtils;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -64,14 +63,6 @@ public class AuthorizationService {
         this.jwtUtils = jwtUtils;
     }
 
-    /**
-     *
-     * Deze methode verwerkt de gebruiker die wil registreren. De username en e-mail worden gecheckt. Eventuele rollen
-     * worden toegevoegd en de gebruiker wordt opgeslagen in de database.
-     *
-     * @param signUpRequest de payload signup-request met gebruikersnaam en wachtwoord.
-     * @return een HTTP response met daarin een succesbericht.
-     */
     public ResponseEntity<MessageResponse> registerUser(@Valid SignupRequest signUpRequest) {
         //if (Boolean.TRUE.equals(userRepository.existsByUsername(signUpRequest.getUsername()))) {
         if (Boolean.TRUE.equals(userRepository.existsByEmail(signUpRequest.getEmail()))) {
@@ -105,13 +96,11 @@ public class AuthorizationService {
                         Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
                                 .orElseThrow(() -> new RuntimeException(ROLE_NOT_FOUND_ERROR));
                         roles.add(adminRole);
-
                         break;
                     case "mod":
                         Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
                                 .orElseThrow(() -> new RuntimeException(ROLE_NOT_FOUND_ERROR));
                         roles.add(modRole);
-
                         break;
                     default:
                         Role userRole = roleRepository.findByName(ERole.ROLE_USER)
@@ -127,18 +116,6 @@ public class AuthorizationService {
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
 
-    /**
-     * Deze methode controleert de ontvangen username en wachtwoord. Het gebruikt hiervoor de
-     * AuthenticationManager. I.a.w. Spring security doet die allemaal voor ons.
-     * <p>
-     * Wanneer de gebruikersnaam/wachtwoord combinatie niet klopt, wordt er een Runtime exception gegooid:
-     * 401 Unauthorized. Deze wordt gegooid door
-     * {@link .jwt.AuthEntryPointJwt}
-     *
-     *
-     * @param loginRequest De payload met username en password.
-     * @return een HTTP-response met daarin de JWT-token.
-     */
     public ResponseEntity<JwtResponse> authenticateUser(@Valid LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
@@ -159,5 +136,4 @@ public class AuthorizationService {
                 userDetails.getEmail(),
                 roles));
     }
-
 }

@@ -1,7 +1,6 @@
 package INKOM.Backend.domain;
 
 public enum EventInventoryStage {
-
     BEFORE(0),
     AFTER(1),
     COIN(2);
